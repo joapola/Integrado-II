@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BitsDrop — Tecnologia</title>
+  <meta name="description" content="Mini sitio accesible con galería y modal." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a class="logo" href="#top"><strong>BitsDrop</strong></a>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="Correo:ventas@bitsdrop.com">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Nuevos lanzamientos 2025</h1>
+      <p>Descubrí la tecnología más reciente en auriculares, memorias USB y celulares.</p>
+      <button class="btn" id="openModal" aria-haspopup="dialog" aria-controls="dialog">Ver detalle</button>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="cards">
+      <article class="card">
+        <div class="card__media">
+          <img class="card__img" src="auriculares.jpg" alt="Auriculares inalámbricos" loading="lazy">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Auriculares</h3>
+          <p class="card__desc">Sonido envolvente con cancelación de ruido y bateria de larga duracion para todo el dia.</p>
+          <a class="btn" href="#top">Comprar</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__media">
+          <img class="card__img" src="Cable USB.jpg" alt="Memoria USB" loading="lazy">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">USB</h3>
+          <p class="card__desc">Velocidad para transferir archivos facilmente.</p>
+          <a class="btn" href="tel:+5491100000000">Llamar</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__media">
+          <img class="card__img" src="Celular.jpeg" alt="Celular moderno" loading="lazy">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Celular</h3>
+          <p class="card__desc">Pantalla HD, camara de alta resolucion y gran rendimiento en aplicaciones y juegos.</p>
+          <a class="btn" href="#faq">Ver FAQ</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Cómo compro un producto?</summary>
+        <p>Podés hacerlo desde la web o llamando al número de contacto.</p>
+      </details>
+      <details>
+        <summary>¿Envían al interior?</summary>
+        <p>Sí, realizamos envíos a todo el país con seguimiento en línea.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- Pie abajo de pagina  -->
+  <footer role="contentinfo">© 2025 BitsDrop — <a href="#top">Volver arriba</a></footer>
+
+  <!-- Modal -->
+  <div class="modal" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="modal__dialog">
+      <h2 id="dialogTitle">Detalle del lanzamiento</h2>
+      <p>Esta temporada lanzamos auriculares, USB y celulares con la mejor tecnología y diseño.</p>
+      <div class="modal__footer">
+        <button class="btn" id="closeModal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para abrir y cerrar modal -->
+  <script>
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('closeModal');
+    const dialog = document.getElementById('dialog');
+
+    openBtn.addEventListener('click', () => {
+      dialog.style.display = 'flex';
+      dialog.querySelector('.modal__dialog').focus();
+    });
+    closeBtn.addEventListener('click', () => dialog.style.display = 'none');
+    window.addEventListener('click', (e) => { if(e.target === dialog) dialog.style.display = 'none'; });
+    window.addEventListener('keydown', (e) => { if(e.key === 'Escape') dialog.style.display = 'none'; });
+  </script>
+
+</body>
+</html>
+
